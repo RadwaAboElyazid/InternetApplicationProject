@@ -14,13 +14,22 @@ namespace InternetApplicationProject.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim(type: "UserRule", value: this.UserRule.ToString()));
+            userIdentity.AddClaim(new Claim(type: "FirstName", value: this.FirstName.ToString()));
+            userIdentity.AddClaim(new Claim(type: "LastName", value: this.LastName.ToString()));
+            userIdentity.AddClaim(new Claim(type: "UserImageUrl", value: this.UserImageUrl.ToString()));
+            userIdentity.AddClaim(new Claim("Id", this.Id.ToString()));
             return userIdentity;
         }
+        public string UserRule { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string UserImageUrl { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Actor> Actors { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
@@ -29,6 +38,8 @@ namespace InternetApplicationProject.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<RequestRole> RequestRoles { get; set; }
+        public DbSet<Request> Requests { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

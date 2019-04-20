@@ -12,5 +12,10 @@ namespace InternetApplicationProject.Models
         public string ProjectDescription { get; set; }
         public float ProjectPrice { get; set; }
         public string ProjectComment { get; set; }
+        public Status Status { get; set; }
+        public int? StatusID { get; set; }
+        public ApplicationUser Customer { get; set; }
+        public String CustomerID { get; set; }
+
     }
 }

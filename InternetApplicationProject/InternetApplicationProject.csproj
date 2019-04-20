@@ -174,8 +174,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="extensions\Class1.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,9 +229,33 @@
     <Compile Include="Migrations\201904191504568_AddNewRequestRoleRecords.Designer.cs">
       <DependentUpon>201904191504568_AddNewRequestRoleRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904191812447_Initial2.cs" />
+    <Compile Include="Migrations\201904191812447_Initial2.Designer.cs">
+      <DependentUpon>201904191812447_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904191853063_AddStatusRecords.cs" />
+    <Compile Include="Migrations\201904191853063_AddStatusRecords.Designer.cs">
+      <DependentUpon>201904191853063_AddStatusRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904191904299_AddStatusTable1.cs" />
+    <Compile Include="Migrations\201904191904299_AddStatusTable1.Designer.cs">
+      <DependentUpon>201904191904299_AddStatusTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904191910273_AddProjectRequest.cs" />
+    <Compile Include="Migrations\201904191910273_AddProjectRequest.Designer.cs">
+      <DependentUpon>201904191910273_AddProjectRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904191911198_AddProjectRequestTable1.cs" />
+    <Compile Include="Migrations\201904191911198_AddProjectRequestTable1.Designer.cs">
+      <DependentUpon>201904191911198_AddProjectRequestTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904191934452_AddRequestTable.cs" />
+    <Compile Include="Migrations\201904191934452_AddRequestTable.Designer.cs">
+      <DependentUpon>201904191934452_AddRequestTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Actor.cs" />
+    <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -244,27 +270,113 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AdminLTE.css" />
+    <Content Include="Content\AdminLTE.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\ionicons.css" />
+    <Content Include="Content\ionicons.min.css" />
+    <Content Include="Content\skin-black-light.css" />
+    <Content Include="Content\skin-black-light.min.css" />
+    <Content Include="Content\skin-black.css" />
+    <Content Include="Content\skin-black.min.css" />
+    <Content Include="Content\skin-blue-light.css" />
+    <Content Include="Content\skin-blue-light.min.css" />
+    <Content Include="Content\skin-blue.css" />
+    <Content Include="Content\skin-blue.min.css" />
+    <Content Include="Content\skin-green-light.css" />
+    <Content Include="Content\skin-green-light.min.css" />
+    <Content Include="Content\skin-green.css" />
+    <Content Include="Content\skin-green.min.css" />
+    <Content Include="Content\skin-purple-light.css" />
+    <Content Include="Content\skin-purple-light.min.css" />
+    <Content Include="Content\skin-purple.css" />
+    <Content Include="Content\skin-purple.min.css" />
+    <Content Include="Content\skin-red-light.css" />
+    <Content Include="Content\skin-red-light.min.css" />
+    <Content Include="Content\skin-red.css" />
+    <Content Include="Content\skin-red.min.css" />
+    <Content Include="Content\skin-yellow-light.css" />
+    <Content Include="Content\skin-yellow-light.min.css" />
+    <Content Include="Content\skin-yellow.css" />
+    <Content Include="Content\skin-yellow.min.css" />
+    <Content Include="Content\_all-skins.css" />
+    <Content Include="Content\_all-skins.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\ionicons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\avatar.png" />
+    <Content Include="img\avatar04.png" />
+    <Content Include="img\avatar2.png" />
+    <Content Include="img\avatar3.png" />
+    <Content Include="img\avatar5.png" />
+    <Content Include="img\credit\american-express.png" />
+    <Content Include="img\credit\cirrus.png" />
+    <Content Include="img\credit\mastercard.png" />
+    <Content Include="img\credit\mestro.png" />
+    <Content Include="img\credit\paypal.png" />
+    <Content Include="img\credit\paypal2.png" />
+    <Content Include="img\credit\visa.png" />
+    <Content Include="img\default-50x50.gif" />
+    <Content Include="img\icons.png" />
+    <Content Include="img\photo1.png" />
+    <Content Include="img\photo2.png" />
+    <Content Include="img\photo3.jpg" />
+    <Content Include="img\photo4.jpg" />
+    <Content Include="img\user1-128x128.jpg" />
+    <Content Include="img\user2-160x160.jpg" />
+    <Content Include="img\user3-128x128.jpg" />
+    <Content Include="img\user4-128x128.jpg" />
+    <Content Include="img\user5-128x128.jpg" />
+    <Content Include="img\user6-128x128.jpg" />
+    <Content Include="img\user7-128x128.jpg" />
+    <Content Include="img\user8-128x128.jpg" />
+    <Content Include="Scripts\adminlte.js" />
+    <Content Include="Scripts\adminlte.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\font-awesome.css.map" />
+    <Content Include="Content\adminlte.css.map" />
+    <Content Include="Content\adminlte.min.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\ionicons.eot" />
+    <Content Include="fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\core.js" />
+    <Content Include="Scripts\demo.js" />
+    <Content Include="Scripts\fastclick.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.min.map" />
+    <Content Include="Scripts\jquery.slim.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.slim.js" />
+    <Content Include="Scripts\jquery.slim.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\plugin.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -299,6 +411,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Customer\AddProjectForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -352,6 +465,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904191504568_AddNewRequestRoleRecords.resx">
       <DependentUpon>201904191504568_AddNewRequestRoleRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191812447_Initial2.resx">
+      <DependentUpon>201904191812447_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191853063_AddStatusRecords.resx">
+      <DependentUpon>201904191853063_AddStatusRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191904299_AddStatusTable1.resx">
+      <DependentUpon>201904191904299_AddStatusTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191910273_AddProjectRequest.resx">
+      <DependentUpon>201904191910273_AddProjectRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191911198_AddProjectRequestTable1.resx">
+      <DependentUpon>201904191911198_AddProjectRequestTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191934452_AddRequestTable.resx">
+      <DependentUpon>201904191934452_AddRequestTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
