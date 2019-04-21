@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InternetApplicationProject.Models;
 
 namespace InternetApplicationProject.Controllers
 {
     public class CustomerController : Controller
     {
-        
-
+        ApplicationDbContext db = new ApplicationDbContext();
+        //DefaultConnection db = new DefaultConnection(); 
 
         // GET: Customer
         public ActionResult Index()
@@ -23,16 +24,11 @@ namespace InternetApplicationProject.Controllers
         {
             return View();
         }
-        [HttpGet]
+        
         public ActionResult ListProject()
         {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ListProject(Project project)
-        {
-            var proj = db.Project.Tolist();
-            return View();
+            var proj = db.Projects.ToList();
+            return View(proj);
         }
     }
 }
