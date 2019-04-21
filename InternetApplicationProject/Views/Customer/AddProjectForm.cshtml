@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
+<style>
+    .form-control{
+            border: 1px none #ccc;
+    }
+</style>
 <section class="content">
     <div class="row">
         <!-- left column -->
@@ -21,13 +26,13 @@
                     {
                         <div class="box-body">
                             <div class="form-group">
-                                @Html.LabelFor(x => x.ProjectName)
+                                @Html.LabelFor(x => x.ProjectName,new { @class="form-control"})
                                 @Html.EditorFor(x => x.ProjectName)
                                 @Html.ValidationMessageFor(x => x.ProjectName)
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(x => x.ProjectDescription)
+                                @Html.LabelFor(x => x.ProjectDescription,new { @class="form-control"})
                                 @Html.EditorFor(x => x.ProjectDescription)
                                 @Html.ValidationMessageFor(x => x.ProjectDescription)
                             </div>
@@ -41,6 +46,7 @@
                     }
                 </form>
             </div>
+        </div>
         </div>
 </section>
 <!-- /.box -->
