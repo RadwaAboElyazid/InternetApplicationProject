@@ -8,15 +8,20 @@ namespace InternetApplicationProject.Controllers
 {
     public class CustomerController : Controller
     {
+
+
         // GET: Customer
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult AddProjectForm()
         {
             return View();
         }
+
+        
     }
 }
